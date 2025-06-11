@@ -2595,7 +2595,7 @@ td input[type="text"]:focus {
 .step-navigation {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 3rem;
+  margin-bottom: 6rem;
   padding: 0 1rem;
   position: relative;
 }
