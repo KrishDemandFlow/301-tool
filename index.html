@@ -121,16 +121,16 @@
                 <h3>Quick Start Guide</h3>
                 <ol>
                     <li><strong>Step 1: Import Existing Redirects (Optional)</strong><br>
-                        If you already have live redirects on your current site, upload them first as a CSV file. This prevents redirect loops and conflicts when creating new redirects. The tool will automatically check for potential conflicts throughout the process.</li>
+                        If you already have live redirects on your current site, upload them first as a CSV file. This prevents redirect loops and conflicts when creating new redirects.</li>
                     
                     <li><strong>Step 2: Upload Your Old URLs</strong><br>
-                        Add the URLs from your old site that need redirects. You can upload a Screaming Frog CSV export (Address column required) or use any tools, or add URLs manually. The tool automatically filters out URLs with 301, 404, or 502 status codes since these don't need new redirects.</li>
+                        Add the URLs from your old site that need redirects. You can upload a CSV (Address column required) or add URLs manually.</li>
                     
                     <li><strong>Step 3: Upload Your New URLs</strong><br>
                         Add your new site's URLs that will serve as redirect destinations. Upload a CSV file or add URLs manually. These become the target options for your redirects.</li>
                     
                     <li><strong>Step 4: Review Intelligent Matches</strong><br>
-                        The tool automatically finds exact slug matches and suggests similar URLs using advanced fuzzy matching with confidence scores. High-confidence matches are highlighted in green, while lower-confidence suggestions appear in yellow.</li>
+                        The tool automatically finds exact slug matches and suggests similar URLs using advanced fuzzy matching.</li>
                     
                     <li><strong>Use AI-Powered Matching (Optional)</strong><br>
                         For unmapped URLs, use the AI matching feature (requires OpenAI API key) to intelligently match remaining URLs based on semantic similarity and content analysis. This can significantly speed up the mapping process.</li>
@@ -142,10 +142,10 @@
                         Pay attention to warning indicators - yellow warnings show potential issues, while red warnings indicate critical conflicts that could create redirect loops or chains. Resolve these before exporting.</li>
                     
                     <li><strong>Bulk Operations</strong><br>
-                        Select multiple rows using checkboxes (Shift+click for ranges, Ctrl/Cmd+click for individual selection). Use bulk action buttons to set multiple URLs to redirect or skip at once. The floating action bar appears when rows are selected.</li>
+                        Select multiple rows using checkboxes. Use bulk action buttons to set multiple URLs to redirect or skip at once. The floating action bar appears when rows are selected.</li>
                     
                     <li><strong>Export Your Redirects</strong><br>
-                        Choose your export format: "Final Redirects" for ready-to-upload CSV files, or "Unmapped URLs" to review remaining work. The export includes only URLs marked for redirect, formatted for easy implementation in Webflow or other platforms.</li>
+                        Choose your export format: "Final Redirects" for ready-to-upload CSV files, or "Unmapped URLs" to review remaining work. The export includes only URLs marked for redirect, formatted for easy implementation in Webflow.</li>
                 </ol>
 
     
