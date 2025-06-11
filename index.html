@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>301 Redirect Manager</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+<link rel="shortcut icon" href="./favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
+<link rel="manifest" href="./site.webmanifest" />
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-content">
+            <a href="/" class="logo-wrapper">
+                <h1>301 Redirect Manager</h1>
+                <svg style="margin-right: auto;" width="132" height="26" viewBox="0 0 168 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M53 18.8456V5.33205H57.4408C61.069 5.33205 64.187 7.59073 64.187 12.0888C64.187 16.5676 61.069 18.8456 57.4408 18.8456H53ZM55.57 16.6062H57.1384C59.5761 16.6062 61.617 15.1969 61.617 12.0888C61.617 8.98069 59.5761 7.57143 57.1384 7.57143H55.57V16.6062Z" fill="#083526"/>
+                    <path d="M70.4495 19C67.1993 19 65.1395 16.722 65.1395 13.4981C65.1395 10.2741 67.3504 7.99614 70.3739 7.99614C73.7565 7.99614 75.8352 10.6409 75.3816 14.0193H67.615C67.804 15.8533 68.9189 16.8571 70.4495 16.8571C71.7156 16.8571 72.5471 16.278 72.7739 15.3514H75.3438C74.947 17.417 73.1707 19 70.4495 19ZM67.7284 12.1467H72.7739C72.7361 10.834 71.7912 9.98456 70.3739 9.98456C68.9945 9.98456 68.0685 10.7181 67.7284 12.1467Z" fill="#083526"/>
+                    <path d="M89.4107 7.99614C91.546 7.99614 93.0767 9.52124 93.0767 11.8185V18.8456H90.5634V12.4556C90.5634 11.1236 89.8642 10.2548 88.6926 10.2548C87.1619 10.2548 86.236 11.6834 86.236 14.1544V18.8456H83.7227V12.4556C83.7227 11.1236 83.0424 10.2548 81.8519 10.2548C80.3401 10.2548 79.4142 11.6641 79.4142 14.1544V18.8456H76.9009V8.15058H79.4142V9.59846C79.9055 8.74904 81.1149 7.99614 82.57 7.99614C84.0817 7.99614 85.2533 8.72973 85.7825 9.98456C86.6895 8.6332 88.0501 7.99614 89.4107 7.99614Z" fill="#083526"/>
+                    <path d="M98.1548 19C95.906 19 94.5266 17.7838 94.5266 15.9112C94.5266 13.9228 95.8871 12.7259 98.9673 12.3977L101.311 12.1274V11.9151C101.311 10.6988 100.441 9.98456 99.1752 9.98456C97.9469 9.98456 97.0777 10.6795 96.9454 11.8764H94.5266C94.7911 9.63707 96.6619 7.99614 99.1752 7.99614C101.877 7.99614 103.805 9.50193 103.805 12.2046V18.8456H101.311V17.4363C100.819 18.3822 99.572 19 98.1548 19ZM97.0399 15.8147C97.0399 16.529 97.6635 17.0309 98.5894 17.0309C100.196 17.0309 101.311 15.9112 101.311 14.0193L99.0051 14.2703C97.6635 14.4247 97.0399 14.9846 97.0399 15.8147Z" fill="#083526"/>
+                    <path d="M105.657 18.8456V8.15058H108.171V9.59846C108.738 8.72973 110.042 7.99614 111.534 7.99614C113.802 7.99614 115.465 9.52124 115.465 11.7992V18.8456H112.952V12.4556C112.952 11.1429 112.158 10.2548 110.892 10.2548C109.286 10.2548 108.171 11.5483 108.171 14.0386V18.8456H105.657Z" fill="#083526"/>
+                    <path d="M121.849 19C118.863 19 116.803 16.8571 116.803 13.4981C116.803 10.139 118.863 7.99614 121.83 7.99614C123.228 7.99614 124.494 8.59459 125.137 9.52124V5.17761H127.65V18.8456H125.137V17.4749C124.494 18.4015 123.247 19 121.849 19ZM119.335 13.4981C119.335 15.4672 120.526 16.7992 122.245 16.7992C123.946 16.7992 125.137 15.4672 125.137 13.4981C125.137 11.529 123.946 10.1776 122.245 10.1776C120.526 10.1776 119.335 11.529 119.335 13.4981Z" fill="#083526"/>
+                    <path d="M130.523 7.59073C130.523 5.33205 131.902 4 133.848 4C134.472 4 135.077 4.11583 135.341 4.21236V6.39382C135.058 6.25869 134.699 6.20077 134.378 6.20077C133.565 6.20077 133.036 6.74131 133.036 7.74517V8.15058H135.303V10.2355H133.036V18.8456H130.523V10.2355H128.879V8.15058H130.523V7.59073Z" fill="#083526"/>
+                    <path d="M136.29 18.8456V5.17761H138.784V18.8456H136.29Z" fill="#083526"/>
+                    <path d="M145.662 19C142.487 19 140.219 16.722 140.219 13.4981C140.219 10.2741 142.487 7.99614 145.662 7.99614C148.817 7.99614 151.104 10.2741 151.104 13.4981C151.104 16.722 148.817 19 145.662 19ZM142.752 13.4981C142.752 15.4672 143.942 16.7992 145.662 16.7992C147.362 16.7992 148.553 15.4672 148.553 13.4981C148.553 11.529 147.362 10.1776 145.662 10.1776C143.942 10.1776 142.752 11.529 142.752 13.4981Z" fill="#083526"/>
+                    <path d="M154.904 18.8456L151.125 8.15058H153.846L156.152 15.39L158.419 8.15058H160.781L163.068 15.39L165.354 8.15058H168L164.221 18.8456H161.84L159.572 11.8958L157.267 18.8456H154.904Z" fill="#083526"/>
+                    <g filter="url(#filter0_d_677_419)">
+                    <rect x="24.7998" y="3.35584" width="21" height="21" rx="5.6" transform="rotate(-6.98996 24.7998 3.35584)" fill="#79FC79"/>
+                    <path d="M28.7049 6.4472C30.953 5.86406 32.7916 6.35273 34.1872 7.47434C34.7492 6.81101 35.4319 6.27871 36.2462 5.98109L36.4056 5.92623C38.0553 5.39765 39.6951 6.01313 40.9356 7.09417C42.2162 8.21017 43.1743 9.89678 43.4505 11.6757L43.4522 11.6877L43.4536 11.6994C43.84 14.8508 42.5047 16.7975 41.0525 17.9214C40.3416 18.4716 39.6123 18.8194 39.065 19.0299C38.7899 19.1357 38.5569 19.2084 38.3898 19.2551C38.3062 19.2785 38.2386 19.2954 38.1902 19.3069C38.1661 19.3127 38.1467 19.3171 38.1324 19.3202C38.1252 19.3218 38.1192 19.3232 38.1146 19.3242C38.1124 19.3247 38.1104 19.3249 38.1088 19.3252C38.108 19.3254 38.1072 19.3256 38.1065 19.3258L38.1057 19.3259C38.1057 19.3259 38.1047 19.3261 37.9593 18.6034C37.8139 17.8806 37.8133 17.8806 37.8133 17.8806C37.8143 17.8803 37.8158 17.8801 37.8179 17.8797C37.8242 17.8783 37.8355 17.8758 37.8511 17.8721C37.8825 17.8646 37.9317 17.8521 37.9961 17.8341C38.1253 17.798 38.3142 17.7396 38.5408 17.6525C38.9968 17.4771 39.5909 17.1915 40.1594 16.7516C41.2642 15.8966 42.3108 14.4392 42.0022 11.8901C41.7782 10.4656 40.9986 9.09701 39.9791 8.20859C38.9888 7.34559 37.8689 7.00533 36.8462 7.33351L36.7476 7.36727C36.186 7.57253 35.6747 7.96862 35.2275 8.52111C36.0198 9.50514 36.5758 10.6979 36.9316 11.8977C37.4269 13.5683 37.5593 15.335 37.356 16.7409C37.2548 17.441 37.0639 18.0971 36.7561 18.6132C36.466 19.0997 36.0284 19.526 35.4207 19.6515L35.2969 19.6726C34.6339 19.7614 34.0353 19.5913 33.5428 19.2158C33.0682 18.8539 32.7288 18.3305 32.4906 17.7571C32.0167 16.616 31.8675 15.0957 31.9838 13.5683C32.101 12.0307 32.493 10.4061 33.1742 9.03787C33.2322 8.92131 33.2927 8.8059 33.3557 8.69214C33.3304 8.6709 33.3049 8.64975 33.2793 8.62909C32.2571 7.80591 30.8948 7.40265 29.0726 7.87528L28.7049 6.4472ZM37.8133 17.8806L37.8122 17.881L37.8127 17.8806L37.8133 17.8806ZM34.4019 9.86936C33.8689 11.005 33.5437 12.3667 33.4434 13.6837C33.3372 15.0767 33.4879 16.3403 33.8409 17.19C34.0162 17.612 34.222 17.886 34.425 18.0408C34.6101 18.1819 34.8216 18.2484 35.1015 18.211L35.1351 18.2042C35.2202 18.1815 35.3507 18.1043 35.5009 17.8525C35.6742 17.5619 35.8225 17.1142 35.9076 16.5259C36.0768 15.355 35.9703 13.8056 35.5292 12.3175C35.2644 11.4245 34.8875 10.5831 34.4019 9.86936Z" fill="#083526"/>
+                    </g>
+                    <path d="M5.51953 18.1758C4.91602 18.1758 4.35938 18.0469 3.84961 17.7891C3.33984 17.5254 2.91797 17.127 2.58398 16.5938H2.56641V18H1.10742V4.9043H2.60156V10.0898H2.61914C2.91797 9.56836 3.3252 9.18164 3.84082 8.92969C4.35645 8.67188 4.91602 8.54297 5.51953 8.54297C6.32812 8.54297 7.03418 8.74512 7.6377 9.14941C8.24121 9.55371 8.70996 10.1191 9.04395 10.8457C9.37793 11.5664 9.54492 12.4043 9.54492 13.3594C9.54492 14.3086 9.37793 15.1465 9.04395 15.873C8.70996 16.5938 8.24121 17.1592 7.6377 17.5693C7.03418 17.9736 6.32812 18.1758 5.51953 18.1758ZM5.29102 16.8311C6.09375 16.8311 6.75 16.5381 7.25977 15.9521C7.77539 15.3604 8.0332 14.4961 8.0332 13.3594C8.0332 12.2227 7.77539 11.3584 7.25977 10.7666C6.75 10.1748 6.09375 9.87891 5.29102 9.87891C4.42969 9.87891 3.74414 10.1982 3.23438 10.8369C2.73047 11.4697 2.47852 12.3105 2.47852 13.3594C2.47852 14.4082 2.73047 15.249 3.23438 15.8818C3.74414 16.5146 4.42969 16.8311 5.29102 16.8311ZM11.1839 21.6738V20.3555H12.098C12.6488 20.3555 13.0677 19.9834 13.3548 19.2393L13.8646 17.9209L10.2698 8.71875H11.887L13.8909 14.0625C14.0198 14.4082 14.1458 14.7568 14.2689 15.1084C14.3978 15.4541 14.5208 15.7998 14.638 16.1455C14.7611 15.7998 14.8841 15.4541 15.0071 15.1084C15.1361 14.7568 15.265 14.4082 15.3939 14.0625L17.3626 8.71875H18.9534L14.6732 19.7227C14.4329 20.3438 14.0902 20.8242 13.6448 21.1641C13.1995 21.5039 12.6839 21.6738 12.098 21.6738H11.1839Z" fill="black"/>
+                    <defs>
+                    <filter id="filter0_d_677_419" x="23.9598" y="0.66024" width="25.0794" height="25.0795" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                    <feOffset dy="0.7"/>
+                    <feGaussianBlur stdDeviation="0.42"/>
+                    <feComposite in2="hardAlpha" operator="out"/>
+                    <feColorMatrix type="matrix" values="0 0 0 0 0.0313726 0 0 0 0 0.207843 0 0 0 0 0.14902 0 0 0 0.2 0"/>
+                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_677_419"/>
+                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_677_419" result="shape"/>
+                    </filter>
+                    </defs>
+                </svg>
+            </a>
+            <div class="navbar-actions">
+                <button id="apiKeyBtn" class="api-key-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+                        <circle cx="12" cy="16" r="1"/>
+                        <path d="m7 11 0-5a5 5 0 0 1 10 0v5"/>
+                    </svg>
+                    API Key
+                </button>
+                <button id="instructionsBtn" class="instructions-btn">
+                    <!-- <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                        <path d="M12 17h.01"/>
+                    </svg> -->
+                    Instructions
+                    
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- API Key Modal -->
+    <div id="apiKeyModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>OpenAI API Key</h2>
+                <button id="closeApiKeyModal" class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="api-key-info">
+                    <p><strong>Required for AI-powered URL matching</strong></p>
+                    <p>This tool uses OpenAI's API to intelligently match unmapped URLs based on semantic similarity. Your API key is stored locally in your browser and never sent to our servers.</p>
+                    <p>Get your API key from: <a href="https://platform.openai.com/api-keys" target="_blank">OpenAI Platform</a></p>
+                </div>
+                
+                <div class="api-key-form">
+                    <div class="form-group">
+                        <label for="apiKeyInput">OpenAI API Key:</label>
+                        <div class="api-key-input-container">
+                            <input type="password" id="apiKeyInput" placeholder="sk-..." />
+                            <button type="button" id="toggleApiKeyVisibility" class="toggle-visibility-btn">👁️</button>
+                        </div>
+                    </div>
+                    
+                    <div class="api-key-actions">
+                        <button id="saveApiKey" class="save-api-key-btn">Save API Key</button>
+                        <button id="clearApiKey" class="clear-api-key-btn">Clear Key</button>
+                    </div>
+                    
+                    <div id="apiKeyStatus" class="api-key-status hidden"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Instructions Modal -->
+    <div id="instructionsModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Instructions</h2>
+                <button class="modal-close" id="closeInstructionsModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="instructions-intro">
+                    <p>This tool helps you create 301 redirect maps for website migrations by automatically matching old URLs to new ones and detecting potential conflicts.</p>
+                </div>
+                <a target="_blank" href="https://www.notion.so/demandflow/How-to-add-301-Redirections-w-Our-Internal-Tool-In-Progress-20d7c5c170c880dba3d4ffdbb6052404?source=copy_link" class="button-link">Read Full Documentation</a>
+                <h3>Quick Start Guide</h3>
+                <ol>
+                    <li><strong>Step 1: Import Existing Redirects (Optional)</strong><br>
+                        If you already have live redirects on your current site, upload them first as a CSV file. This prevents redirect loops and conflicts when creating new redirects. The tool will automatically check for potential conflicts throughout the process.</li>
+                    
+                    <li><strong>Step 2: Upload Your Old URLs</strong><br>
+                        Add the URLs from your old site that need redirects. You can upload a Screaming Frog CSV export (Address column required) or use any tools, or add URLs manually. The tool automatically filters out URLs with 301, 404, or 502 status codes since these don't need new redirects.</li>
+                    
+                    <li><strong>Step 3: Upload Your New URLs</strong><br>
+                        Add your new site's URLs that will serve as redirect destinations. Upload a CSV file or add URLs manually. These become the target options for your redirects.</li>
+                    
+                    <li><strong>Step 4: Review Intelligent Matches</strong><br>
+                        The tool automatically finds exact slug matches and suggests similar URLs using advanced fuzzy matching with confidence scores. High-confidence matches are highlighted in green, while lower-confidence suggestions appear in yellow.</li>
+                    
+                    <li><strong>Use AI-Powered Matching (Optional)</strong><br>
+                        For unmapped URLs, use the AI matching feature (requires OpenAI API key) to intelligently match remaining URLs based on semantic similarity and content analysis. This can significantly speed up the mapping process.</li>
+                    
+                    <li><strong>Manual Mapping & Filtering</strong><br>
+                        For remaining unmapped URLs, use the dropdown autocomplete to select targets. Type to filter options, or browse all available URLs. Use the filter buttons (All, Mapped, Unmapped, Needs Attention, Conflicts) to focus on specific URL groups.</li>
+                    
+                    <li><strong>Handle Conflicts & Warnings</strong><br>
+                        Pay attention to warning indicators - yellow warnings show potential issues, while red warnings indicate critical conflicts that could create redirect loops or chains. Resolve these before exporting.</li>
+                    
+                    <li><strong>Bulk Operations</strong><br>
+                        Select multiple rows using checkboxes (Shift+click for ranges, Ctrl/Cmd+click for individual selection). Use bulk action buttons to set multiple URLs to redirect or skip at once. The floating action bar appears when rows are selected.</li>
+                    
+                    <li><strong>Export Your Redirects</strong><br>
+                        Choose your export format: "Final Redirects" for ready-to-upload CSV files, or "Unmapped URLs" to review remaining work. The export includes only URLs marked for redirect, formatted for easy implementation in Webflow or other platforms.</li>
+                </ol>
+
+    
+
+                <!-- <h3>Keyboard Shortcuts</h3>
+                <ul>
+                    <li><span class="keyboard-shortcut">Ctrl+A</span> / <span class="keyboard-shortcut">Cmd+A</span> - Select all visible rows</li>
+                    <li><span class="keyboard-shortcut">Esc</span> - Clear all selections</li>
+                    <li><span class="keyboard-shortcut">Shift+Click</span> - Select range of rows</li>
+                    <li><span class="keyboard-shortcut">Ctrl/Cmd+Click</span> - Select individual rows</li>
+                </ul> -->
+
+                <div class="instructions-note">
+                    <p><strong>💡 Pro Tip:</strong> Start with existing redirects, then add old URLs, then new URLs. This order helps the tool make better matches and catch more conflicts early.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CSV Format Modal -->
+    <div id="csvFormatModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>CSV Format Requirements</h2>
+                <button class="modal-close" onclick="closeCsvFormatModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="csvFormatContent">
+                    <!-- Content will be dynamically populated -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Step Container -->
+        <div class="step-container">
+            <!-- Step Navigation Header -->
+            <div class="step-navigation">
+                <div class="step-item" data-step="1">
+                    <div class="step-number">1</div>
+                    <div class="step-info">
+                        <div class="step-title">Existing Redirects</div>
+                        <div class="step-subtitle">To avoid redirect loops</div>
+                    </div>
+                </div>
+                
+                <div class="step-item" data-step="2">
+                    <div class="step-number">2</div>
+                    <div class="step-info">
+                        <div class="step-title">Upload Old URLs</div>
+                        <div class="step-subtitle">From existing client's site</div>
+                    </div>
+                </div>
+                
+                <div class="step-item" data-step="3">
+                    <div class="step-number">3</div>
+                    <div class="step-info">
+                        <div class="step-title">Upload New URLs</div>
+                        <div class="step-subtitle">From New Site</div>
+                    </div>
+                </div>
+                
+                <div class="step-item" data-step="4">
+                    <div class="step-number">4</div>
+                    <div class="step-info">
+                        <div class="step-title">Map & Export</div>
+                        <div class="step-subtitle">Export ready-to-upload CSV</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step Content Areas -->
+            <div class="step-content-container">
+                <!-- Step 1: Existing Redirects -->
+                <div class="step-content" data-step="1">
+                    <div class="step-header">
+                        <h2><span class="header-bg">Import Existing Redirects</span></h2>
+                        <span class="optional-badge">Optional</span>
+                       
+                    </div>
+                    
+                    <p class="help-text tool">
+                        If you already have redirects implemented on your site, upload them here to prevent redirect loops and conflicts.<br>
+                        <a href="#" class="format-guide-link" onclick="openCsvFormatModal('existing-redirects'); return false;">View CSV format requirements →</a>
+                    </p>
+
+                    <div class="form-group">
+                        <label for="existingRedirectsInput">Upload existing 301 redirects CSV:</label>
+                        <div class="file-input-container">
+                            <input type="file" id="existingRedirectsInput" accept=".csv" />
+                            <div class="file-input-button">Choose file</div>
+                            <div class="file-input-text">No file chosen</div>
+                            <button id="removeExistingRedirectsFile" class="bulk-btn hidden" style="background-color: var(--warning); color: var(--warning-foreground); padding: 0.5rem 0.75rem; line-height: 1;">Remove</button>
+                        </div>
+                        <div id="existingRedirectStatus" class="status-message"></div>
+                    </div>
+                    <div style="display: none;" class="form-group">
+                        <label for="existingRedirectsPaste">Or paste existing redirects (source,target per line):</label>
+                        <textarea id="existingRedirectsPaste" rows="5" placeholder="source1,target1
+source2,target2"></textarea>
+                        <button id="loadPastedExistingRedirects" class="paste-btn">Load Pasted Redirects</button>
+                        <div id="pastedExistingRedirectsStatus" class="status-message"></div>
+                    </div>
+                    <div id="existingRedirectsContainer" class="hidden">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                            <h3 style="margin: 0;">Current Existing Redirects:</h3>
+                            <button id="clearExistingRedirects" class="bulk-btn" style="background-color: var(--destructive); color: var(--destructive-foreground);">Clear All</button>
+                        </div>
+                        <div id="existingRedirectsList" class="url-list"></div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Old URLs -->
+                <div class="step-content" data-step="2">
+                    <div class="step-header">
+                        <h2><span class="header-bg">Upload Old URLs</span></h2>
+                        <!-- <p>Upload your old URLs from Screaming Frog or enter them manually</p> -->
+        </div>
+
+                    <p class="help-text tool">
+                        Use Screaming Frog or <a href="https://yourgpt.ai/tools/url-extractor" target="_blank" rel="noopener noreferrer">this tool</a> to extract the URLs. 
+                        <a href="#" class="format-guide-link" onclick="openCsvFormatModal('old-urls'); return false;">View CSV format requirements →</a>
+                    </p>
+                    
+                    <div class="form-group">
+                        <label for="oldCsvInput">Select CSV file with old URLs:</label>
+                        <div class="file-input-container">
+                            <input type="file" id="oldCsvInput" accept=".csv" />
+                            <div class="file-input-button">Choose file</div>
+                            <div class="file-input-text">No file chosen</div>
+                            <button id="removeOldUrlsFile" class="bulk-btn hidden" style="background-color: var(--warning); color: var(--warning-foreground); padding: 0.5rem 0.75rem; line-height: 1;">Remove</button>
+                        </div>
+                        <div id="oldUrlStatus" class="status-message"></div>
+                    </div>
+                    <div class="spacer-sm"></div>
+                    <div class="form-group">
+                        <label>Manually add an old URL/slug:</label>
+                        <div class="manual-add">
+                            <input type="text" id="manualOldUrlInput" placeholder="/old-page" />
+                            <button id="addManualOldUrl">Add</button>
+                        </div>
+                        <div id="manualOldUrlStatus" class="status-message"></div>
+                    </div>
+
+                    <div id="oldUrlsContainer" class="hidden">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                            <h3 style="margin: 0;">Current Old URLs:</h3>
+                            <button id="clearOldUrls" class="bulk-btn" style="background-color: var(--destructive); color: var(--destructive-foreground);">Clear All</button>
+                        </div>
+                        <div id="oldUrlsList"></div>
+                    </div>
+                </div>
+
+                <!-- Step 3: New URLs -->
+                <div class="step-content" data-step="3">
+                    <div class="step-header">
+                        <h2><span class="header-bg">Upload New URLs</span></h2>
+                        <!-- <p>Upload your new site URLs or enter them manually</p> -->
+        </div>
+
+                    <p class="help-text tool">
+                        Upload your new site URLs. Use Screaming Frog or <a href="https://yourgpt.ai/tools/url-extractor" target="_blank" rel="noopener noreferrer">this tool</a> to extract the URLs. 
+                        <a href="#" class="format-guide-link" onclick="openCsvFormatModal('new-urls'); return false;">View CSV format requirements →</a>
+                    </p>
+
+                    <div class="form-group">
+                        <label for="newCsvInput">Upload CSV file with new URLs (optional):</label>
+                        <div class="file-input-container">
+                            <input type="file" id="newCsvInput" accept=".csv" />
+                            <div class="file-input-button">Choose file</div>
+                            <div class="file-input-text">No file chosen</div>
+                            <button id="removeNewUrlsFile" class="bulk-btn hidden" style="background-color: var(--warning); color: var(--warning-foreground); padding: 0.5rem 0.75rem; line-height: 1;">Remove</button>
+                        </div>
+                        <div id="newUrlStatus" class="status-message"></div>
+                    </div>
+                    <div class="spacer-sm"></div>
+                    <div class="form-group">
+                        <label>Manually add a new URL/slug:</label>
+                        <div class="manual-add">
+                            <input type="text" id="manualUrlInput" placeholder="/new-slug" />
+                            <button id="addManualUrl">Add</button>
+                        </div>
+                        <div id="manualUrlStatus" class="status-message"></div>
+                    </div>
+
+                    <div id="newUrlsContainer" class="hidden">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                            <h3 style="margin: 0;">Current New URLs:</h3>
+                            <button id="clearNewUrls" class="bulk-btn" style="background-color: var(--destructive); color: var(--destructive-foreground);">Clear All</button>
+                        </div>
+                        <div id="newUrlsList"></div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Map & Export -->
+                <div class="step-content" data-step="4">
+                    <div class="step-header">
+                        <h2><span class="header-bg">Map & Export Redirects</span></h2>
+                        <p>Review automatic matches, manually map remaining URLs, then export your redirects</p>
+        </div>
+
+                    <div id="redirectSection" class="hidden">
+                    <!-- Summary Panel -->
+                    <div class="summary-panel">
+                        <h3>Mapping Summary</h3>
+                        <div class="summary-stats">
+                            <div class="stat-item">
+                                <div class="stat-number" id="totalUrlsCount">0</div>
+                                <div class="stat-label">Total URLs</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number" id="mappedCount">0</div>
+                                <div class="stat-label">Mapped</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number" id="unmappedCount">0</div>
+                                <div class="stat-label">Unmapped</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number" id="conflictsCount">0</div>
+                                <div class="stat-label">Conflicts</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number" id="skippedCount">0</div>
+                                <div class="stat-label">Skipped</div>
+                            </div>
+                            <div class="stat-item" title="URLs excluded to prevent redirect loops with existing redirects">
+                                <div class="stat-number" id="excludedCount">0</div>
+                                <div class="stat-label">Excluded</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bulk-actions">
+                        <span class="bulk-label">Bulk Actions:</span>
+                        
+                        <div class="bulk-action-group">
+                            <button id="checkAllBtn" class="bulk-btn">Set All to Redirect</button>
+                            <button id="uncheckAllBtn" class="bulk-btn">Set All to Skip</button>
+                        </div>
+                        
+                        <div class="bulk-action-group hidden">
+                            <button id="checkUnmappedBtn" class="bulk-btn">Redirect Unmapped</button>
+                            <button id="checkMappedBtn" class="bulk-btn">Redirect Mapped</button>
+                        </div>
+                    </div>
+
+                    <div id="aiMatchingSection" class="ai-matching-section hidden">
+                        <div class="ai-matching-header">
+                            <span class="ai-label">AI-Powered Matching:</span>
+                            <button id="aiMatchBtn" class="ai-match-btn" disabled title="Uses OpenAI API to intelligently match unmapped URLs based on semantic similarity. (Requires OpenAI API key.)">
+                                Match Remaining URLs with AI
+                                <svg width="14" height="14" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="svelte-1auaipg"><g clip-path="url(#clip0_730_3393)" class="svelte-1auaipg"><mask id="mask0_730_3393" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="16" height="16" class="svelte-1auaipg"><path d="M0 0H15.9997V15.9997H0V0Z" fill="white" class="svelte-1auaipg"></path></mask><g mask="url(#mask0_730_3393)" class="svelte-1auaipg"><path class="star-1 svelte-1auaipg" d="M6.50027 15.9992C6.34227 16 6.18777 15.9526 6.05743 15.8632C5.92707 15.7739 5.82713 15.6469 5.7709 15.4992L4.5259 12.2617C4.5007 12.1965 4.46213 12.1373 4.41267 12.0878C4.36323 12.0383 4.30397 11.9998 4.23873 11.9746L1.00033 10.7286C0.852817 10.672 0.725937 10.572 0.636437 10.4418C0.546937 10.3116 0.499023 10.1573 0.499023 9.99928C0.499023 9.84128 0.546937 9.68698 0.636437 9.55675C0.725937 9.42655 0.852817 9.32655 1.00033 9.26991L4.2378 8.02495C4.30303 7.99971 4.3623 7.96115 4.41173 7.91168C4.4612 7.86225 4.49977 7.80301 4.52497 7.73775L5.7709 4.49935C5.8275 4.35185 5.9275 4.22495 6.05773 4.13545C6.18793 4.04595 6.34227 3.99805 6.50027 3.99805C6.65827 3.99805 6.81257 4.04595 6.94277 4.13545C7.073 4.22495 7.173 4.35185 7.22963 4.49935L8.4746 7.73681C8.49983 7.80205 8.5384 7.86131 8.58787 7.91075C8.63733 7.96021 8.69654 7.99878 8.7618 8.02398L11.9805 9.26241C12.134 9.31931 12.2663 9.42218 12.3593 9.55691C12.4522 9.69165 12.5015 9.85181 12.5002 10.0155C12.4978 10.1708 12.4489 10.3217 12.3597 10.4489C12.2706 10.576 12.1453 10.6735 12.0002 10.7286L8.76274 11.9736C8.69747 11.9988 8.63827 12.0374 8.5888 12.0869C8.53933 12.1363 8.50077 12.1956 8.47553 12.2608L7.22963 15.4992C7.1734 15.6469 7.07343 15.7739 6.9431 15.8632C6.8128 15.9526 6.6583 16 6.50027 15.9992Z" fill="white"></path><path class="star-2 svelte-1auaipg" d="M2.74991 5.49984C2.65727 5.49984 2.5668 5.47177 2.49043 5.41933C2.41407 5.3669 2.35538 5.29257 2.3221 5.2061L1.79523 3.8361C1.78381 3.80613 1.76619 3.77897 1.74351 3.75627C1.72084 3.7336 1.69363 3.71597 1.66367 3.70453L0.293687 3.17768C0.207244 3.1444 0.132913 3.0857 0.0804873 3.00933C0.0280615 2.93297 3.33333e-10 2.84251 0 2.74988C3.33333e-10 2.65725 0.0280615 2.56679 0.0804873 2.49042C0.132913 2.41405 0.207244 2.35536 0.293687 2.32207L1.66367 1.7952C1.6936 1.78373 1.72078 1.76609 1.74345 1.74342C1.76612 1.72076 1.78376 1.72076 1.79523 1.72076L2.31741 0.305847C2.34686 0.225911 2.39754 0.155512 2.46399 0.102215C2.53045 0.0489184 2.61017 0.0147391 2.69459 0.00335101C2.79595 -0.00897059 2.89852 0.0128974 2.98604 0.0654874C3.07356 0.118077 3.14102 0.198379 3.17771 0.29366L3.70457 1.66364C3.71603 1.69357 3.7337 1.72076 3.75637 1.74342C3.779 1.76609 3.8062 1.78373 3.83613 1.7952L5.20613 2.32207C5.29256 2.35536 5.3669 2.41405 5.41933 2.49042C5.47173 2.56679 5.4998 2.65725 5.4998 2.74988C5.4998 2.84251 5.47173 2.93297 5.41933 3.00933C5.3669 3.0857 5.29256 3.1444 5.20613 3.17768L3.83613 3.70453C3.80617 3.71597 3.77897 3.7336 3.7563 3.75627C3.7336 3.77897 3.71597 3.80613 3.70457 3.8361L3.17771 5.2061C3.14443 5.29257 3.08574 5.3669 3.00937 5.41933C2.93301 5.47177 2.84254 5.49984 2.74991 5.49984Z" fill="white"></path><path class="star-3 svelte-1auaipg" d="M12.4995 8.0001C12.3985 8.00007 12.2998 7.9694 12.2165 7.9122C12.1332 7.85493 12.0692 7.7738 12.033 7.67947L11.3192 5.8242C11.3067 5.7915 11.2874 5.7618 11.2626 5.73703C11.2379 5.71227 11.2082 5.693 11.1755 5.68043L9.3202 4.9667C9.22597 4.9304 9.1449 4.86636 9.08773 4.78306C9.0306 4.6998 9 4.60116 9 4.50013C9 4.39913 9.0306 4.3005 9.08773 4.2172C9.1449 4.13393 9.22597 4.0699 9.3202 4.0336L11.1755 3.31984C11.2082 3.30728 11.2379 3.288 11.2626 3.26325C11.2874 3.23847 11.3067 3.20878 11.3192 3.17609L12.0277 1.33393C12.06 1.24682 12.1154 1.1701 12.1878 1.11194C12.2603 1.05377 12.3472 1.01634 12.4392 1.00362C12.5498 0.990237 12.6617 1.01417 12.7572 1.07164C12.8526 1.1291 12.9262 1.2168 12.9661 1.32081L13.6798 3.17609C13.6924 3.20878 13.7117 3.23847 13.7364 3.26325C13.7612 3.288 13.7909 3.30728 13.8236 3.31984L15.6789 4.0336C15.7731 4.0699 15.8542 4.13393 15.9113 4.2172C15.9685 4.3005 15.9991 4.39913 15.9991 4.50013C15.9991 4.60116 15.9685 4.6998 15.9113 4.78306C15.8542 4.86636 15.7731 4.9304 15.6789 4.9667L13.8236 5.68043C13.7909 5.693 13.7612 5.71227 13.7364 5.73703C13.7117 5.7618 13.6924 5.7915 13.6798 5.8242L12.9661 7.67947C12.9298 7.7738 12.8658 7.85493 12.7826 7.9122C12.6993 7.9694 12.6006 8.00007 12.4995 8.0001Z" fill="white"></path></g></g><defs class="svelte-1auaipg"><clipPath id="clip0_730_3393" class="svelte-1auaipg"><rect width="16" height="16" fill="white" class="svelte-1auaipg"></rect></clipPath></defs></svg>
+                            </button>
+                            <span id="aiMatchStatus" class="ai-match-status"></span>
+                        </div>
+                        <div id="aiMatchProgress" class="ai-match-progress hidden">
+                            <div class="progress-bar">
+                                <div class="progress-fill"></div>
+                            </div>
+                            <span class="progress-text">Processing batch 1 of 1...</span>
+                        </div>
+                        <div id="aiMatchResults" class="ai-match-results hidden">
+                            <p class="ai-results-summary"></p>
+                        </div>
+                    </div>
+
+                    <div class="redirect-table-container">
+                        <div class="table-search-header">
+                            <div class="filter-actions">
+                                <span class="filter-label">Filter:</span>
+                                <button id="filterAllBtn" class="filter-btn active">All</button>
+                                <button id="filterMappedBtn" class="filter-btn">Mapped</button>
+                                <button id="filterUnmappedBtn" class="filter-btn">Unmapped</button>
+                                <button id="filterNeedsAttentionBtn" class="filter-btn">Needs Attention</button>
+                                <button id="filterSkippedBtn" class="filter-btn">Skipped</button>
+                                <button id="filterConflictsBtn" class="filter-btn">Conflicts</button>
+                            </div>
+                            <div class="search-input-wrapper">
+                                <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="11" cy="11" r="8"/>
+                                    <path d="M21 21l-4.35-4.35"/>
+                                </svg>
+                                <input type="text" id="searchFilter" placeholder="Search URLs..." />
+                                <button id="clearSearch" class="clear-search-btn" title="Clear search">×</button>
+                            </div>
+                        </div>
+                        <table id="redirectTable">
+                            <thead>
+                                <tr>
+                                    <th class="selection-header"></th>
+                                    <th>Source URL</th>
+                                    <th>Status</th>
+                                    <th>Target URL</th>
+                                    <th>Score</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="redirectTableBody"></tbody>
+                        </table>
+                        </div>
+                    </div>
+
+                    <!-- Export Section -->
+                    <div class="export-section">
+                        <div class="export-options">
+                            <h3>Export Options</h3>
+                            <div class="export-radio-group">
+                                <label class="export-radio-option">
+                                    <input type="radio" name="exportType" value="mapped_redirect" checked>
+                                    <span class="radio-custom"></span>
+                                    <div class="radio-content">
+                                        <strong>Export Final Redirects</strong>
+                                        <span class="radio-description">Ready-to-upload CSV for Webflow. Contains all mapped URLs set to redirect.</span>
+                                    </div>
+                                </label>
+                                
+                                <label class="export-radio-option">
+                                    <input type="radio" name="exportType" value="unmapped_skip">
+                                    <span class="radio-custom"></span>
+                                    <div class="radio-content">
+                                        <strong>Export Unmapped URLs</strong>
+                                        <span class="radio-description">URLs that still need manual mapping. Use this to review and handle remaining URLs.</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="export-actions">
+                            <div class="counts">
+                                <p id="redirectCount">0 redirects will be exported</p>
+                            </div>
+                            <button class="button-link" id="exportCsv">Download CSV</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Controls -->
+            <div class="step-navigation-controls">
+                <div class="step-navigation-controls-inner">
+                <button id="prevStepBtn" class="nav-btn prev-btn" disabled>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"/>
+                    </svg>
+                    Previous
+                </button>
+                
+                <button id="nextStepBtn" class="nav-btn next-btn">
+                    Next
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"/>
+                    </svg>
+                </button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Selection Controls -->
+    <div id="floatingSelectionBar" class="floating-selection-bar hidden">
+        <div class="floating-selection-content">
+            <div class="selection-info">
+                <span id="floatingSelectionCount">0 selected</span>
+            </div>
+            <div class="selection-actions">
+                <button id="floatingSetRedirect" class="floating-action-btn redirect-btn">Set to Redirect</button>
+                <button id="floatingSetSkip" class="floating-action-btn skip-btn">Set to Skip</button>
+                <button id="floatingExportSelected" class="floating-action-btn export-btn">Export Selected</button>
+                <button id="floatingClearSelection" class="floating-action-btn clear-btn">Clear Selection</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.min.js" defer></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
