@@ -2891,6 +2891,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize AI API key
     initializeAiApiKey();
+    
+    // Initialize modal event listeners
+    initializeModalEventListeners();
 });
 
 // Initial calls if needed
@@ -3024,29 +3027,60 @@ function closeInstructionsModal() {
     document.body.style.overflow = ''; // Restore scrolling
 }
 
-// Event listeners for modal
-instructionsBtn.addEventListener('click', openInstructionsModal);
-closeInstructionsModalBtn.addEventListener('click', closeInstructionsModal);
-
-// Close modal when clicking outside of it
-instructionsModal.addEventListener('click', function(e) {
-    if (e.target === instructionsModal) {
-        closeInstructionsModal();
+// Initialize modal event listeners
+function initializeModalEventListeners() {
+    // Instructions Modal event listeners
+    if (instructionsBtn && closeInstructionsModalBtn && instructionsModal) {
+        instructionsBtn.addEventListener('click', openInstructionsModal);
+        closeInstructionsModalBtn.addEventListener('click', closeInstructionsModal);
+        
+        // Close modal when clicking outside of it
+        instructionsModal.addEventListener('click', function(e) {
+            if (e.target === instructionsModal) {
+                closeInstructionsModal();
+            }
+        });
     }
-});
+    
+    // API Key Modal event listeners
+    if (apiKeyBtn && closeApiKeyModalBtn && toggleApiKeyVisibilityBtn && saveApiKeyBtn && clearApiKeyBtn && apiKeyModal) {
+        apiKeyBtn.addEventListener('click', openApiKeyModal);
+        closeApiKeyModalBtn.addEventListener('click', closeApiKeyModal);
+        toggleApiKeyVisibilityBtn.addEventListener('click', toggleApiKeyVisibility);
+        saveApiKeyBtn.addEventListener('click', saveApiKey);
+        clearApiKeyBtn.addEventListener('click', clearApiKey);
+        
+        // Close API Key modal when clicking outside of it
+        apiKeyModal.addEventListener('click', function(e) {
+            if (e.target === apiKeyModal) {
+                closeApiKeyModal();
+            }
+        });
+    }
+    
+    // CSV Format Modal event listeners
+    if (csvFormatModal) {
+        // Close CSV Format modal when clicking outside of it
+        csvFormatModal.addEventListener('click', function(e) {
+            if (e.target === csvFormatModal) {
+                closeCsvFormatModal();
+            }
+        });
+    }
 
-// Close modal with Escape key
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-        if (instructionsModal.classList.contains('show')) {
-            closeInstructionsModal();
-        } else if (apiKeyModal.classList.contains('show')) {
-            closeApiKeyModal();
-        } else if (csvFormatModal.classList.contains('show')) {
-            closeCsvFormatModal();
+    // Close modal with Escape key (global event listener)
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            if (instructionsModal && instructionsModal.classList.contains('show')) {
+                closeInstructionsModal();
+            } else if (apiKeyModal && apiKeyModal.classList.contains('show')) {
+                closeApiKeyModal();
+            } else if (csvFormatModal && (csvFormatModal.classList.contains('show') || csvFormatModal.style.display === 'block')) {
+                closeCsvFormatModal();
+            }
         }
-    }
-});
+    });
+}
 
 // API Key Modal functionality
 function openApiKeyModal() {
@@ -3148,27 +3182,6 @@ function showApiKeyStatus(message, type) {
         toastManager.info(message);
     }
 }
-
-// Event listeners for API Key modal
-apiKeyBtn.addEventListener('click', openApiKeyModal);
-closeApiKeyModalBtn.addEventListener('click', closeApiKeyModal);
-toggleApiKeyVisibilityBtn.addEventListener('click', toggleApiKeyVisibility);
-saveApiKeyBtn.addEventListener('click', saveApiKey);
-clearApiKeyBtn.addEventListener('click', clearApiKey);
-
-// Close API Key modal when clicking outside of it
-apiKeyModal.addEventListener('click', function(e) {
-    if (e.target === apiKeyModal) {
-        closeApiKeyModal();
-    }
-});
-
-// Close CSV Format modal when clicking outside of it
-csvFormatModal.addEventListener('click', function(e) {
-    if (e.target === csvFormatModal) {
-        closeCsvFormatModal();
-    }
-});
 
 // Add event listeners for search functionality
 searchFilter.addEventListener('input', handleSearchFilter);
@@ -3432,11 +3445,13 @@ function openCsvFormatModal(type) {
     
     content.innerHTML = htmlContent;
     csvFormatModal.classList.add('show');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
 }
 
 // Close CSV format modal
 function closeCsvFormatModal() {
     csvFormatModal.classList.remove('show');
+    document.body.style.overflow = ''; // Restore scrolling
 }
 
 // Step Navigation Functions
