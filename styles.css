@@ -2967,6 +2967,18 @@ td input[type="text"]:focus {
   .step-container {
     padding: 1rem;
   }
+  .step-content{
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .export-radio-group{
+    flex-direction: column;
+  }
+
+  .summary-panel{
+    max-width: 80vw;
+  }
   
   .step-navigation {
     flex-direction: column;
