@@ -3022,3 +3022,17 @@ td input[type="text"]:focus {
     gap: 0.5rem;
   }
 }
+
+#redirectUnmappedToHomeBtn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--primary);
+    color: var(--primary-foreground);
+}
+
+
+#redirectUnmappedToHomeBtn svg {
+    width: 16px;
+    height: 16px;
+}
