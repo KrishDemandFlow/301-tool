@@ -2894,6 +2894,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize modal event listeners
     initializeModalEventListeners();
+    
+    // Add event listener for redirect to home button
+    document.getElementById('redirectUnmappedToHomeBtn').addEventListener('click', redirectUnmappedToHome);
 });
 
 // Initial calls if needed
@@ -3680,5 +3683,34 @@ function autoAdvanceStep() {
       }
     }, 1000);
   }
+}
+
+function redirectUnmappedToHome() {
+    const unmappedRows = Array.from(document.querySelectorAll('#redirectTableBody tr')).filter(row => {
+        const targetInput = row.querySelector('input[type="text"]');
+        return !targetInput.value.trim(); // No target URL set
+    });
+
+    if (unmappedRows.length === 0) {
+        toastManager.info('No Action Needed', 'There are no unmapped URLs to redirect.');
+        return;
+    }
+
+    unmappedRows.forEach(row => {
+        const targetInput = row.querySelector('input[type="text"]');
+        const checkbox = row.querySelector('.row-checkbox');
+        
+        targetInput.value = '/';
+        checkbox.checked = true;
+        
+        // Trigger change event to update UI
+        const event = new Event('change', { bubbles: true });
+        targetInput.dispatchEvent(event);
+        checkbox.dispatchEvent(event);
+    });
+
+    updateSummaryPanel();
+    updateRedirectCount();
+    showBulkActionFeedback(`Set ${unmappedRows.length} unmapped URL${unmappedRows.length === 1 ? '' : 's'} to redirect to homepage`);
 }
 
